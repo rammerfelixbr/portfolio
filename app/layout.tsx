@@ -11,9 +11,9 @@ const lexendDeca = Lexend_Deca({
 });
 
 export const metadata: Metadata = {
-  title: "Hammer | Consultor de Estruturação Operacional",
+  title: "Hammer Felix Consulting | Estruturação Operacional & Sistemas de Gestão",
   description:
-    "Especialista em estruturação operacional, organização de empresas e sistemas de gestão. Transformando processos em resultados.",
+    "Consultoria especializada em estruturação operacional, organização de empresas e desenvolvimento de sistemas de gestão personalizados.",
   keywords: [
     "consultoria",
     "estruturação operacional",

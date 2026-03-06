@@ -1,122 +1,331 @@
-import type { Metadata } from "next";
-import SystemFeature from "@/components/SystemFeature";
+"use client";
+
+import { motion } from "framer-motion";
+import { AnimatedSection, AnimatedCounter } from "@/lib/animations";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Sistema de Gestão | Hammer",
-  description: "Conheça o sistema de gestão desenvolvido por Hammer: controle de tarefas, conciliação financeira, monitoramento de equipes e muito mais.",
-};
-
-const features = [
-  {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
-      </svg>
-    ),
-    title: "Gerenciamento de Tarefas e Solicitações Internas",
-    description: "Sistema centralizado para criar, atribuir e acompanhar tarefas entre setores. Cada solicitação é registrada com responsável, prazo e status, garantindo que nada se perca.",
-  },
-  {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
-      </svg>
-    ),
-    title: "Conciliação Financeira",
-    description: "Módulo para controle de entradas e saídas, conciliação bancária e acompanhamento do fluxo de caixa. Relatórios automáticos que facilitam a tomada de decisão financeira.",
-  },
-  {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
-      </svg>
-    ),
-    title: "Termômetro de Sobrecarga de Funcionários",
-    description: "Indicador visual que monitora a carga de trabalho de cada colaborador, identificando riscos de sobrecarga antes que afetem a produtividade e o bem-estar da equipe.",
-  },
-  {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-      </svg>
-    ),
-    title: "Registro de Reuniões e Histórico",
-    description: "Documentação automática de reuniões com registro de participantes, pautas, decisões e ações definidas. Histórico completo acessível a qualquer momento.",
-  },
-  {
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
-      </svg>
-    ),
-    title: "Gerenciamento de Credenciais e Links Importantes",
-    description: "Cofre centralizado e seguro para armazenar credenciais de sistemas, links importantes e informações de acesso, organizado por setor e com controle de permissões.",
-  },
-];
-
 export default function SistemaPage() {
-  return (
-    <div className="py-16 sm:py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-12">
-          <h1 className="text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-white tracking-tight">
-            Sistema de <span className="text-[#D4A843]">Gestão</span>
-          </h1>
-          <p className="mt-4 text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed">
-            Desenvolvi um sistema de gestão completo e personalizado, construído para resolver os problemas reais que encontro nas empresas que atendo. Cada módulo foi pensado para trazer clareza e controle à operação.
-          </p>
-        </div>
+  const modules = [
+    {
+      number: "01",
+      title: "Dashboard & Termômetro de Sobrecarga",
+      description:
+        "Painel central com visão geral de toda a operação. Inclui um termômetro visual que monitora em tempo real a carga de trabalho de cada colaborador — combinando funções ativas e solicitações pendentes — prevenindo sobrecarga e burnout.",
+      highlight: "Monitoramento em tempo real",
+    },
+    {
+      number: "02",
+      title: "Gestão de Solicitações e Tarefas",
+      description:
+        "Sistema completo de delegação e acompanhamento de demandas. Priorização por urgência (urgente, alta, média, baixa), filtro por colaborador, calendário integrado, controle de prazos e backlog. Tarefas recorrentes e alertas automáticos.",
+      highlight: "Priorização inteligente",
+    },
+    {
+      number: "03",
+      title: "Módulo Financeiro Completo",
+      description:
+        "Gestão financeira integrada com conciliação bancária multi-banco, contas a pagar e receber, projeção de fluxo de caixa para 6 meses, fechamento mensal, análise por categoria e alertas de vencimento automáticos.",
+      highlight: "Projeção de 6 meses",
+    },
+    {
+      number: "04",
+      title: "Funções e Estrutura por Setor",
+      description:
+        "Mapeamento completo de responsabilidades por colaborador e por setor. Visualização clara de quem faz o quê, com contagem de funções ativas e filtros por departamento: Financeiro, Atendimento, Comercial, Marketing, Operações e mais.",
+      highlight: "Organização por setor",
+    },
+    {
+      number: "05",
+      title: "Pedidos, Reuniões e Lembretes",
+      description:
+        "Canal para solicitações de recursos com fluxo de aprovação. Registro de reuniões com pautas, decisões e histórico. Sistema de lembretes pessoais para compromissos e follow-ups.",
+      highlight: "Fluxo de aprovação",
+    },
+    {
+      number: "06",
+      title: "Credenciais e Dados da Empresa",
+      description:
+        "Cofre centralizado de credenciais organizado por setor, com controle de acesso e cópia rápida. Hub de informações da empresa com CNPJ, bancos, equipe e parceiros em um só lugar.",
+      highlight: "Segurança centralizada",
+    },
+  ];
 
-        {/* System Overview */}
-        <div className="mb-12 p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-[#111111]">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-              { value: "5", label: "Módulos integrados" },
-              { value: "100%", label: "Personalizado" },
-              { value: "24/7", label: "Acesso online" },
-              { value: "Real-time", label: "Dados atualizados" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div className="text-2xl font-bold text-[#D4A843]">{stat.value}</div>
-                <div className="text-xs text-neutral-600 dark:text-neutral-400 mt-1">{stat.label}</div>
+  const stats = [
+    { value: "10", suffix: "+", label: "Módulos integrados" },
+    { value: "7", suffix: "", label: "Colaboradores gerenciados" },
+    { value: "115", suffix: "+", label: "Transações rastreadas" },
+    { value: "57", suffix: "", label: "Funções mapeadas" },
+  ];
+
+  return (
+    <div className="min-h-screen bg-black">
+      {/* Header */}
+      <AnimatedSection className="pt-32 pb-16 px-6 lg:px-8 max-w-7xl mx-auto">
+        <span className="inline-block text-xs tracking-[0.3em] uppercase text-[var(--gold)] font-medium mb-6">
+          // SISTEMA DE GESTÃO
+        </span>
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] max-w-4xl">
+          Um sistema{" "}
+          <span className="text-gold-gradient">completo</span>, construído
+          para a realidade das empresas
+        </h1>
+        <p className="mt-6 text-[var(--text-secondary)] text-lg max-w-2xl leading-relaxed">
+          Plataforma de gestão operacional desenvolvida para centralizar tarefas,
+          finanças, equipes e processos em um único ambiente — substituindo
+          planilhas e processos manuais por um sistema integrado com dados em
+          tempo real.
+        </p>
+      </AnimatedSection>
+
+      {/* Dashboard Mockup - representação visual do sistema real */}
+      <AnimatedSection className="px-6 lg:px-8 max-w-7xl mx-auto pb-12" delay={0.15}>
+        <div className="bg-white/[0.02] border border-white/5 rounded-2xl overflow-hidden">
+          {/* Top bar */}
+          <div className="flex items-center px-4 py-3 border-b border-white/5">
+            <div className="flex items-center gap-2 mr-auto">
+              <div className="w-3 h-3 rounded-full bg-red-500/40" />
+              <div className="w-3 h-3 rounded-full bg-yellow-500/40" />
+              <div className="w-3 h-3 rounded-full bg-green-500/40" />
+            </div>
+            <div className="flex gap-1 text-[10px] tracking-wider uppercase text-white/30">
+              <span className="px-3 py-1 rounded bg-[var(--gold)]/10 text-[var(--gold)]/70 border border-[var(--gold)]/20">Dashboard</span>
+              <span className="px-3 py-1">Solicitações</span>
+              <span className="px-3 py-1">Financeiro</span>
+              <span className="px-3 py-1 hidden sm:inline">Equipe</span>
+            </div>
+          </div>
+
+          <div className="flex min-h-[380px]">
+            {/* Sidebar */}
+            <div className="w-44 border-r border-white/5 p-3 hidden md:flex flex-col gap-1.5">
+              {[
+                { label: "Dashboard", active: true },
+                { label: "Solicitações", active: false },
+                { label: "Financeiro", active: false },
+                { label: "Funções", active: false },
+                { label: "Credenciais", active: false },
+                { label: "Reuniões", active: false },
+                { label: "Pedidos", active: false },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className={`flex items-center gap-2 px-3 py-2 rounded-lg text-[10px] tracking-wide ${
+                    item.active
+                      ? "bg-[var(--gold)]/10 border-l-2 border-[var(--gold)] text-[var(--gold)]"
+                      : "text-white/25"
+                  }`}
+                >
+                  <div className={`w-3 h-3 rounded ${item.active ? "bg-[var(--gold)]/30" : "bg-white/10"}`} />
+                  {item.label}
+                </div>
+              ))}
+              {/* User at bottom */}
+              <div className="mt-auto pt-3 border-t border-white/5 flex items-center gap-2 px-2">
+                <div className="w-6 h-6 rounded-full bg-purple-500/30 flex items-center justify-center text-[8px] text-purple-300">R</div>
+                <div>
+                  <div className="text-[9px] text-white/40">Rammer</div>
+                  <div className="text-[8px] text-[var(--gold)]/50">Admin</div>
+                </div>
               </div>
-            ))}
+            </div>
+
+            {/* Main area */}
+            <div className="flex-1 p-5 space-y-4">
+              {/* Alert banner */}
+              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--gold)]/5 border border-[var(--gold)]/10">
+                <div className="w-1.5 h-1.5 rounded-full bg-[var(--gold)] animate-pulse" />
+                <span className="text-[10px] text-[var(--gold)]/60">3 solicitações aguardando • 2 contas vencendo hoje</span>
+              </div>
+
+              {/* Stats row */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {[
+                  { label: "Credenciais", value: "29", color: "bg-blue-500/10 border-blue-500/10" },
+                  { label: "Funções", value: "57", color: "bg-[var(--gold)]/10 border-[var(--gold)]/10" },
+                  { label: "Solicitações", value: "14", color: "bg-orange-500/10 border-orange-500/10" },
+                  { label: "Reuniões", value: "8", color: "bg-purple-500/10 border-purple-500/10" },
+                ].map((stat) => (
+                  <div key={stat.label} className={`px-3 py-3 rounded-xl border ${stat.color}`}>
+                    <div className="text-[9px] text-white/30 mb-1">{stat.label}</div>
+                    <div className="text-lg font-bold text-white/60">{stat.value}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Workload thermometer */}
+              <div className="bg-white/[0.02] rounded-xl border border-white/5 p-4">
+                <div className="text-[10px] text-white/30 uppercase tracking-wider mb-3">Termômetro de Carga</div>
+                <div className="space-y-2">
+                  {[
+                    { name: "R", load: 89, color: "bg-red-500" },
+                    { name: "S", load: 42, color: "bg-yellow-500" },
+                    { name: "N", load: 28, color: "bg-green-500" },
+                    { name: "D", load: 65, color: "bg-orange-500" },
+                  ].map((person) => (
+                    <div key={person.name} className="flex items-center gap-3">
+                      <div className="w-5 h-5 rounded-full bg-white/5 flex items-center justify-center text-[8px] text-white/40">{person.name}</div>
+                      <div className="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
+                        <motion.div
+                          className={`h-full rounded-full ${person.color}/40`}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${person.load}%` }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, delay: 0.3 }}
+                        />
+                      </div>
+                      <span className="text-[9px] text-white/30 w-8 text-right">{person.load}%</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Chart */}
+              <div className="bg-white/[0.02] rounded-xl border border-white/5 p-4">
+                <div className="text-[10px] text-white/30 uppercase tracking-wider mb-3">Projeção Financeira — 6 meses</div>
+                <div className="flex items-end gap-1.5 h-24">
+                  {[
+                    { g: 65, r: 55 }, { g: 72, r: 60 }, { g: 80, r: 68 },
+                    { g: 58, r: 50 }, { g: 85, r: 70 }, { g: 90, r: 65 },
+                  ].map((bar, i) => (
+                    <div key={i} className="flex-1 flex gap-px items-end">
+                      <motion.div
+                        className="flex-1 rounded-t bg-green-500/20"
+                        initial={{ height: 0 }}
+                        whileInView={{ height: `${bar.g}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: i * 0.08 }}
+                      />
+                      <motion.div
+                        className="flex-1 rounded-t bg-red-500/15"
+                        initial={{ height: 0 }}
+                        whileInView={{ height: `${bar.r}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: i * 0.08 + 0.1 }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom status bar */}
+          <div className="px-4 py-2 border-t border-white/5 flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-green-500/60" />
+            <span className="text-[9px] text-white/20">Salvo na nuvem • Sincronizado em tempo real</span>
           </div>
         </div>
 
-        {/* Features */}
-        <div className="space-y-4">
-          <h2 className="text-xl font-bold text-neutral-900 dark:text-white mb-6">
-            Funcionalidades
+        <p className="text-center text-white/30 text-sm mt-6 max-w-2xl mx-auto">
+          Interface real do sistema — dashboard, termômetro de sobrecarga, projeção financeira e muito mais.
+        </p>
+      </AnimatedSection>
+
+      {/* Live Link */}
+      <AnimatedSection className="px-6 lg:px-8 max-w-7xl mx-auto pb-16">
+        <div className="flex items-center justify-center">
+          <a
+            href="https://sistema-gestao-rotina.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 px-6 py-3 rounded-full border border-[var(--gold)]/20 bg-[var(--gold)]/5 hover:bg-[var(--gold)]/10 transition-colors"
+          >
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+            <span className="text-sm text-[var(--gold)]">Ver sistema em produção</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3.5 h-3.5 text-[var(--gold)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
+          </a>
+        </div>
+      </AnimatedSection>
+
+      {/* Modules */}
+      <div className="px-6 lg:px-8 max-w-7xl mx-auto py-20 border-t border-white/5">
+        <AnimatedSection>
+          <span className="inline-block text-xs tracking-[0.3em] uppercase text-[var(--gold)] font-medium mb-4">
+            // MÓDULOS
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-16">
+            Funcionalidades do sistema
           </h2>
-          {features.map((feature) => (
-            <SystemFeature
-              key={feature.title}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
+        </AnimatedSection>
+
+        {modules.map((module, index) => (
+          <AnimatedSection key={module.number} delay={index * 0.06}>
+            <div className="group grid grid-cols-1 md:grid-cols-[100px_1fr_auto] gap-6 md:gap-10 py-10 border-b border-white/5 hover:border-[var(--gold)]/20 transition-colors">
+              <div>
+                <span className="text-4xl font-bold bg-gradient-to-b from-[var(--gold)] to-[var(--gold)]/20 bg-clip-text text-transparent">
+                  {module.number}
+                </span>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-[var(--gold)] transition-colors">
+                  {module.title}
+                </h3>
+                <p className="text-[var(--text-secondary)] leading-relaxed max-w-2xl text-sm">
+                  {module.description}
+                </p>
+              </div>
+              <div className="hidden md:flex items-center">
+                <span className="px-3 py-1 rounded-full border border-[var(--gold)]/20 text-[var(--gold)] text-[10px] uppercase tracking-wider whitespace-nowrap">
+                  {module.highlight}
+                </span>
+              </div>
+            </div>
+          </AnimatedSection>
+        ))}
+      </div>
+
+      {/* Stats */}
+      <AnimatedSection className="px-6 lg:px-8 max-w-7xl mx-auto py-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden">
+          {stats.map((stat, i) => (
+            <div key={i} className="bg-black px-6 py-10 text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-gold-gradient mb-2">
+                <AnimatedCounter target={parseInt(stat.value)} suffix={stat.suffix} />
+              </div>
+              <div className="text-xs text-[var(--text-secondary)] uppercase tracking-wider">
+                {stat.label}
+              </div>
+            </div>
           ))}
         </div>
+      </AnimatedSection>
 
-        {/* CTA */}
-        <div className="mt-16 p-8 rounded-2xl border border-[#D4A843]/30 bg-[#D4A843]/5 text-center">
-          <h2 className="text-xl font-bold text-neutral-900 dark:text-white mb-3">
-            Quer um sistema assim para sua empresa?
-          </h2>
-          <p className="text-neutral-600 dark:text-neutral-400 mb-6 max-w-xl mx-auto">
-            Posso adaptar e implementar um sistema de gestão sob medida para a realidade do seu negócio.
-          </p>
-          <Link
-            href="/contato"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[#D4A843] text-black font-semibold text-sm hover:bg-[#B8942E] transition-colors"
-          >
-            Solicitar uma Demonstração
-          </Link>
+      {/* Tech Stack */}
+      <AnimatedSection className="px-6 lg:px-8 max-w-7xl mx-auto pb-20">
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          {["JavaScript", "Firebase", "Firestore", "Cloud Functions", "Vercel", "Real-time Sync"].map((tech) => (
+            <span key={tech} className="px-4 py-2 rounded-full border border-white/5 text-xs text-[var(--text-secondary)] tracking-wider">
+              {tech}
+            </span>
+          ))}
         </div>
-      </div>
+      </AnimatedSection>
+
+      {/* CTA */}
+      <AnimatedSection className="px-6 lg:px-8 max-w-7xl mx-auto pb-32">
+        <div className="relative text-center py-20 rounded-3xl border border-white/5 bg-white/[0.01] overflow-hidden">
+          <div className="absolute inset-0 bg-[var(--gold)]/[0.02] blur-[100px] rounded-full w-96 h-96 mx-auto my-auto" />
+          <div className="relative">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              Quer um sistema assim para sua empresa?
+            </h2>
+            <p className="text-[var(--text-secondary)] mb-8 max-w-lg mx-auto">
+              Posso desenvolver um sistema sob medida, adaptado à realidade e aos processos do seu negócio.
+            </p>
+            <Link
+              href="/contato"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[var(--gold)] text-black font-semibold text-sm uppercase tracking-wide hover:bg-[var(--gold-bright)] transition-colors"
+            >
+              Solicitar Demonstração
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </AnimatedSection>
     </div>
   );
 }

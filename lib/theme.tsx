@@ -38,7 +38,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   };
 
   if (!mounted) {
-    return <div className="min-h-screen bg-[#0A0A0A]" />;
+    return <div className="min-h-screen bg-black" />;
   }
 
   return (

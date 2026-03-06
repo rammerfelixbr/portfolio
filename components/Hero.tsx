@@ -1,67 +1,70 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { AnimatedCounter } from "@/lib/animations";
 
 export default function Hero() {
+  const [imgError, setImgError] = useState(false);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden grain">
-      {/* Background layers */}
-      <div className="absolute inset-0 bg-black" />
+    <section className="relative min-h-screen flex items-center overflow-hidden grain bg-black">
+      {/* Subtle radial glow behind photo */}
+      <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] rounded-full bg-[var(--gold)]/[0.04] blur-[150px] -translate-y-1/2" />
+      <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] rounded-full bg-[var(--gold)]/[0.02] blur-[120px]" />
 
-      {/* Radial gold glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[var(--gold)]/[0.03] blur-[120px]" />
+      {/* Vertical gold accent line */}
+      <div className="absolute left-[8%] top-0 w-px h-full bg-gradient-to-b from-transparent via-[var(--gold)]/10 to-transparent hidden lg:block" />
 
-      {/* Grid lines */}
-      <div className="absolute inset-0 opacity-[0.04]" style={{
-        backgroundImage: `linear-gradient(rgba(201,168,76,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.3) 1px, transparent 1px)`,
-        backgroundSize: '80px 80px'
-      }} />
-
-      {/* Diagonal gold line */}
-      <div className="absolute top-0 right-0 w-px h-[60vh] bg-gradient-to-b from-transparent via-[var(--gold)]/20 to-transparent rotate-[20deg] origin-top-right" />
-
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-32 sm:py-40">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          {/* Left content */}
-          <div className="lg:col-span-7">
+      <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-8 py-20">
+        {/* Main content grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
+          {/* Left: Name + info */}
+          <div className="lg:col-span-7 order-2 lg:order-1">
+            {/* Top label */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-3 mb-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex items-center gap-3 mb-8"
             >
-              <div className="h-px w-12 bg-[var(--gold)]" />
-              <span className="text-[11px] uppercase tracking-[0.3em] text-[var(--gold)] font-semibold">
-                Consultoria Operacional
+              <div className="h-px w-10 bg-[var(--gold)]" />
+              <span className="text-[10px] uppercase tracking-[0.35em] text-[var(--gold)] font-medium">
+                Estruturação Operacional & Sistemas de Gestão
               </span>
             </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+            {/* Name - large, portfolio style */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-bold tracking-tight text-white leading-[1.1]"
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
-              Transformando empresas com{" "}
-              <span className="text-gold-gradient">organização operacional</span>{" "}
-              e gestão estratégica
-            </motion.h1>
+              <h1 className="text-[3.2rem] sm:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.5rem] font-bold tracking-tight text-white leading-[0.9]">
+                Rammer
+                <br />
+                <span className="text-gold-gradient">Felix</span>
+              </h1>
+            </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-6 text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed max-w-xl"
-            >
-              Especialista em estruturação de processos, desenvolvimento de sistemas de gestão e coordenação operacional. Do diagnóstico à implementação.
-            </motion.p>
-
+            {/* Role description */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="mt-8 max-w-lg"
+            >
+              <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
+                Consultoria especializada em estruturação operacional, desenvolvimento de sistemas de gestão e organização de processos empresariais.
+              </p>
+            </motion.div>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
               className="mt-10 flex flex-col sm:flex-row gap-4"
             >
               <Link
@@ -74,62 +77,114 @@ export default function Hero() {
                 </svg>
               </Link>
               <Link
-                href="/servicos"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/20 text-white font-medium text-sm tracking-wide uppercase hover:border-[var(--gold)] hover:text-[var(--gold)] transition-all duration-300"
+                href="/portfolio"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/15 text-white font-medium text-sm tracking-wide uppercase hover:border-[var(--gold)] hover:text-[var(--gold)] transition-all duration-300"
               >
-                Ver Serviços
+                Ver Portfólio
               </Link>
+            </motion.div>
+
+            {/* Quick info pills */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1 }}
+              className="mt-12 flex flex-wrap gap-6 text-[11px] uppercase tracking-[0.2em] text-white/25"
+            >
+              <span className="flex items-center gap-2">
+                <span className="w-1 h-1 rounded-full bg-[var(--gold)]" />
+                Consultoria Operacional
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-1 h-1 rounded-full bg-[var(--gold)]" />
+                Sistemas sob medida
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-1 h-1 rounded-full bg-[var(--gold)]" />
+                Automação de processos
+              </span>
             </motion.div>
           </div>
 
-          {/* Right - Stats */}
+          {/* Right: Rounded photo */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="lg:col-span-5"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="lg:col-span-5 flex justify-center order-1 lg:order-2"
           >
-            <div className="grid grid-cols-2 gap-px bg-white/5 rounded-2xl overflow-hidden">
-              {[
-                { number: 50, suffix: "+", label: "Processos\nestruturados" },
-                { number: 100, suffix: "%", label: "Soluções\nsob medida" },
-                { number: 15, suffix: "h", label: "Economizadas\npor semana" },
-                { number: 360, suffix: "°", label: "Visão\ncompleta" },
-              ].map((stat, i) => (
-                <div
-                  key={stat.label}
-                  className={`relative p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-colors duration-500 ${
-                    i === 0 ? "rounded-tl-2xl" : i === 1 ? "rounded-tr-2xl" : i === 2 ? "rounded-bl-2xl" : "rounded-br-2xl"
-                  }`}
-                >
-                  <div className="text-3xl sm:text-4xl font-bold text-gold-gradient mb-2">
-                    <AnimatedCounter target={stat.number} suffix={stat.suffix} />
+            <div className="relative">
+              {/* Gold glow behind photo */}
+              <div className="absolute inset-0 rounded-full bg-[var(--gold)]/[0.08] blur-[60px] scale-110" />
+
+              {/* Rotating gold ring */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                className="absolute -inset-3 rounded-full"
+                style={{
+                  background: "conic-gradient(from 0deg, transparent 0%, var(--gold) 10%, transparent 20%, transparent 50%, var(--gold) 60%, transparent 70%)",
+                  opacity: 0.3,
+                }}
+              />
+
+              {/* Static gold border */}
+              <div className="absolute -inset-1 rounded-full border border-[var(--gold)]/20" />
+              <div className="absolute -inset-3 rounded-full border border-[var(--gold)]/10" />
+
+              {/* Photo container */}
+              <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-2 border-[var(--gold)]/30">
+                {imgError ? (
+                  <div className="w-full h-full bg-gradient-to-br from-white/[0.08] to-white/[0.02] flex items-center justify-center">
+                    <span className="text-5xl sm:text-6xl font-bold text-white/[0.08]">RF</span>
                   </div>
-                  <div className="text-xs text-[var(--text-secondary)] uppercase tracking-wider whitespace-pre-line leading-relaxed">
-                    {stat.label}
-                  </div>
+                ) : (
+                  <Image
+                    src="/rammer.jpg"
+                    alt="Rammer Felix"
+                    fill
+                    className="object-cover"
+                    priority
+                    onError={() => setImgError(true)}
+                  />
+                )}
+              </div>
+
+              {/* Floating info card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.1 }}
+                className="absolute -bottom-4 -right-4 sm:-right-8 bg-black/80 backdrop-blur-xl border border-white/10 px-5 py-3 z-20 rounded-lg"
+              >
+                <div className="text-[10px] uppercase tracking-[0.2em] text-[var(--gold)] mb-0.5">
+                  Coordenador de Operações
                 </div>
-              ))}
+                <div className="text-[10px] text-white/40">
+                  Estruturação &middot; Gestão &middot; Automação
+                </div>
+              </motion.div>
+
+              {/* Small gold dot accent */}
+              <div className="absolute top-4 -left-2 w-2 h-2 rounded-full bg-[var(--gold)]/60" />
+              <div className="absolute bottom-8 -left-4 w-1 h-1 rounded-full bg-[var(--gold)]/40" />
             </div>
           </motion.div>
         </div>
 
-        {/* Bottom marquee */}
+        {/* Bottom scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="mt-24 overflow-hidden"
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
-          <div className="gold-line w-full mb-6" />
-          <div className="flex gap-12 animate-[marquee_20s_linear_infinite] whitespace-nowrap">
-            {["Estruturação Operacional", "Sistemas de Gestão", "Automação de Processos", "Consultoria Estratégica", "Organização Empresarial", "Mapeamento de Fluxos", "Relatórios Inteligentes", "Gestão de Equipes"].map((text, i) => (
-              <span key={i} className="text-sm uppercase tracking-[0.2em] text-white/20 flex items-center gap-12">
-                {text}
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)]/30" />
-              </span>
-            ))}
-          </div>
+          <span className="text-[9px] uppercase tracking-[0.3em] text-white/20">Scroll</span>
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="w-px h-8 bg-gradient-to-b from-[var(--gold)]/40 to-transparent"
+          />
         </motion.div>
       </div>
     </section>

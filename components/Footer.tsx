@@ -50,7 +50,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://linkedin.com/in/hammer" target="_blank" rel="noopener noreferrer" className="text-sm text-[var(--text-secondary)] hover:text-white transition-colors duration-300">
+                <a href="https://www.linkedin.com/in/rammer-felix-34a0583b1/" target="_blank" rel="noopener noreferrer" className="text-sm text-[var(--text-secondary)] hover:text-white transition-colors duration-300">
                   LinkedIn
                 </a>
               </li>

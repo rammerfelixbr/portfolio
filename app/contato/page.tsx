@@ -89,7 +89,7 @@ export default function ContatoPage() {
 
               {/* LinkedIn */}
               <a
-                href="https://linkedin.com/in/hammer"
+                href="https://www.linkedin.com/in/rammer-felix-34a0583b1/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-5 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-[var(--gold)]/30 transition-colors duration-300 group"

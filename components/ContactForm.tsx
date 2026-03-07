@@ -32,7 +32,7 @@ export default function ContactForm() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
           </svg>
         </div>
-        <h3 className="text-xl font-semibold text-white mb-2">Mensagem preparada</h3>
+        <h3 className="text-xl font-semibold text-[var(--foreground)] mb-2">Mensagem preparada</h3>
         <p className="text-[var(--text-secondary)] text-sm max-w-sm mx-auto">
           Seu cliente de e-mail deve ter aberto. Caso contrário, envie para rammerfelix@gmail.com
         </p>
@@ -48,8 +48,8 @@ export default function ContactForm() {
 
   const inputClasses = (field: string) =>
     `w-full px-0 py-3 bg-transparent border-0 border-b ${
-      focusedField === field ? "border-[var(--gold)]" : "border-white/10"
-    } text-white placeholder-white/20 focus:outline-none focus:ring-0 text-sm transition-colors duration-300`;
+      focusedField === field ? "border-[var(--gold)]" : "border-[var(--foreground)]/10"
+    } text-[var(--foreground)] placeholder-[var(--foreground)]/20 focus:outline-none focus:ring-0 text-sm transition-colors duration-300`;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8">

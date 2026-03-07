@@ -30,14 +30,14 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-black/90 backdrop-blur-xl border-b border-white/5"
+          ? "bg-[var(--background)]/90 backdrop-blur-xl border-b border-[var(--foreground)]/5"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="relative group">
-            <span className="text-lg font-semibold tracking-wide text-white">
+            <span className="text-lg font-semibold tracking-wide text-[var(--foreground)]">
               Hammer<span className="text-gold-gradient font-bold"> Felix</span>
             </span>
             <span className="block text-[10px] uppercase tracking-[0.25em] text-[var(--text-secondary)] -mt-0.5">
@@ -56,7 +56,7 @@ export default function Header() {
                   className={`relative px-4 py-2 text-[13px] font-medium tracking-wide uppercase transition-colors duration-300 ${
                     isActive
                       ? "text-[var(--gold)]"
-                      : "text-[var(--text-secondary)] hover:text-white"
+                      : "text-[var(--text-secondary)] hover:text-[var(--foreground)]"
                   }`}
                 >
                   {link.label}
@@ -70,7 +70,7 @@ export default function Header() {
                 </Link>
               );
             })}
-            <div className="ml-4 pl-4 border-l border-white/10">
+            <div className="ml-4 pl-4 border-l border-[var(--foreground)]/10">
               <ThemeToggle />
             </div>
           </nav>
@@ -84,7 +84,7 @@ export default function Header() {
             >
               <motion.span
                 animate={mobileOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
-                className="w-6 h-px bg-white block origin-center"
+                className="w-6 h-px bg-[var(--foreground)] block origin-center"
               />
               <motion.span
                 animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
@@ -92,7 +92,7 @@ export default function Header() {
               />
               <motion.span
                 animate={mobileOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
-                className="w-6 h-px bg-white block origin-center"
+                className="w-6 h-px bg-[var(--foreground)] block origin-center"
               />
             </button>
           </div>
@@ -106,7 +106,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-black/95 backdrop-blur-xl border-t border-white/5 overflow-hidden"
+            className="lg:hidden bg-[var(--background)]/95 backdrop-blur-xl border-t border-[var(--foreground)]/5 overflow-hidden"
           >
             <nav className="px-6 py-6 space-y-1">
               {navLinks.map((link, i) => (
@@ -119,10 +119,10 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`block py-3 text-sm font-medium tracking-wide uppercase border-b border-white/5 transition-colors ${
+                    className={`block py-3 text-sm font-medium tracking-wide uppercase border-b border-[var(--foreground)]/5 transition-colors ${
                       pathname === link.href
                         ? "text-[var(--gold)]"
-                        : "text-[var(--text-secondary)] hover:text-white"
+                        : "text-[var(--text-secondary)] hover:text-[var(--foreground)]"
                     }`}
                   >
                     <span className="text-[var(--gold)] text-xs mr-3 opacity-40">

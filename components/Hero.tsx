@@ -9,7 +9,7 @@ export default function Hero() {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden grain bg-black">
+    <section className="relative min-h-screen flex items-center overflow-hidden grain bg-[var(--background)]">
       {/* Subtle radial glow behind photo */}
       <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] rounded-full bg-[var(--gold)]/[0.04] blur-[150px] -translate-y-1/2" />
       <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] rounded-full bg-[var(--gold)]/[0.02] blur-[120px]" />
@@ -41,7 +41,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <h1 className="text-[3.2rem] sm:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.5rem] font-bold tracking-tight text-white leading-[0.9]">
+              <h1 className="text-[3.2rem] sm:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.5rem] font-bold tracking-tight text-[var(--foreground)] leading-[0.9]">
                 Rammer
                 <br />
                 <span className="text-gold-gradient">Felix</span>
@@ -78,7 +78,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="/portfolio"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/15 text-white font-medium text-sm tracking-wide uppercase hover:border-[var(--gold)] hover:text-[var(--gold)] transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-[var(--foreground)]/15 text-[var(--foreground)] font-medium text-sm tracking-wide uppercase hover:border-[var(--gold)] hover:text-[var(--gold)] transition-all duration-300"
               >
                 Ver Portfólio
               </Link>
@@ -89,7 +89,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 1 }}
-              className="mt-12 flex flex-wrap gap-6 text-[11px] uppercase tracking-[0.2em] text-white/25"
+              className="mt-12 flex flex-wrap gap-6 text-[11px] uppercase tracking-[0.2em] text-[var(--foreground)]/25"
             >
               <span className="flex items-center gap-2">
                 <span className="w-1 h-1 rounded-full bg-[var(--gold)]" />
@@ -136,7 +136,7 @@ export default function Hero() {
               <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-2 border-[var(--gold)]/30">
                 {imgError ? (
                   <div className="w-full h-full bg-gradient-to-br from-white/[0.08] to-white/[0.02] flex items-center justify-center">
-                    <span className="text-5xl sm:text-6xl font-bold text-white/[0.08]">RF</span>
+                    <span className="text-5xl sm:text-6xl font-bold text-[var(--foreground)]/[0.08]">RF</span>
                   </div>
                 ) : (
                   <Image
@@ -155,12 +155,12 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.1 }}
-                className="absolute -bottom-4 -right-4 sm:-right-8 bg-black/80 backdrop-blur-xl border border-white/10 px-5 py-3 z-20 rounded-lg"
+                className="absolute -bottom-4 -right-4 sm:-right-8 bg-[var(--background)]/80 backdrop-blur-xl border border-[var(--foreground)]/10 px-5 py-3 z-20 rounded-lg"
               >
                 <div className="text-[10px] uppercase tracking-[0.2em] text-[var(--gold)] mb-0.5">
                   Coordenador de Operações
                 </div>
-                <div className="text-[10px] text-white/40">
+                <div className="text-[10px] text-[var(--foreground)]/40">
                   Estruturação &middot; Gestão &middot; Automação
                 </div>
               </motion.div>
@@ -179,7 +179,7 @@ export default function Hero() {
           transition={{ delay: 1.5 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
-          <span className="text-[9px] uppercase tracking-[0.3em] text-white/20">Scroll</span>
+          <span className="text-[9px] uppercase tracking-[0.3em] text-[var(--foreground)]/20">Scroll</span>
           <motion.div
             animate={{ y: [0, 6, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}

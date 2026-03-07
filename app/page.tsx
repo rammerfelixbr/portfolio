@@ -58,12 +58,12 @@ export default function Home() {
       {/* ──────────────────────────────────────────────
           KEYWORDS TICKER
       ────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-black border-y border-white/5 py-5">
+      <section className="relative overflow-hidden bg-[var(--background)] border-y border-[var(--foreground)]/5 py-5">
         <div className="flex whitespace-nowrap animate-[marquee_25s_linear_infinite]">
           {[...keywords, ...keywords, ...keywords].map((word, i) => (
             <span
               key={i}
-              className="flex items-center gap-6 mx-6 text-[11px] sm:text-xs uppercase tracking-[0.35em] text-white/40 font-medium select-none"
+              className="flex items-center gap-6 mx-6 text-[11px] sm:text-xs uppercase tracking-[0.35em] text-[var(--foreground)]/40 font-medium select-none"
             >
               {word}
               <span className="w-1 h-1 rounded-full bg-[var(--gold)]/60 shrink-0" />
@@ -75,7 +75,7 @@ export default function Home() {
       {/* ──────────────────────────────────────────────
           SERVICES PREVIEW — BENTO GRID
       ────────────────────────────────────────────── */}
-      <section className="relative py-24 sm:py-32 bg-black overflow-hidden">
+      <section className="relative py-24 sm:py-32 bg-[var(--background)] overflow-hidden">
         {/* Subtle background glow */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[var(--gold)]/[0.02] blur-[160px] pointer-events-none" />
 
@@ -87,7 +87,7 @@ export default function Home() {
                 Serviços
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--foreground)] tracking-tight">
               O que <span className="text-gold-gradient">fazemos</span>
             </h2>
             <p className="mt-4 text-base sm:text-lg text-[var(--text-secondary)] max-w-xl leading-relaxed">
@@ -102,10 +102,10 @@ export default function Home() {
               <motion.div
                 whileHover={{ borderColor: "var(--gold)" }}
                 transition={{ duration: 0.3 }}
-                className="relative h-full min-h-[400px] md:min-h-full p-8 sm:p-10 rounded-2xl bg-white/[0.02] border border-white/5 overflow-hidden group flex flex-col justify-between"
+                className="relative h-full min-h-[400px] md:min-h-full p-8 sm:p-10 rounded-2xl bg-[var(--foreground)]/[0.02] border border-[var(--foreground)]/5 overflow-hidden group flex flex-col justify-between"
               >
                 {/* Number watermark */}
-                <span className="absolute top-6 right-8 text-[8rem] sm:text-[10rem] font-black leading-none text-white/[0.03] select-none pointer-events-none">
+                <span className="absolute top-6 right-8 text-[8rem] sm:text-[10rem] font-black leading-none text-[var(--foreground)]/[0.03] select-none pointer-events-none">
                   01
                 </span>
 
@@ -113,7 +113,7 @@ export default function Home() {
                 <div className="w-10 h-[3px] bg-[var(--gold)] rounded-full mb-8 group-hover:w-16 transition-all duration-500" />
 
                 <div className="relative z-10 flex flex-col flex-1">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[var(--foreground)] tracking-tight leading-snug">
                     {services[0].title}
                   </h3>
                   <p className="mt-4 text-[var(--text-secondary)] leading-relaxed text-sm sm:text-base flex-1">
@@ -147,13 +147,13 @@ export default function Home() {
                 <motion.div
                   whileHover={{ borderColor: "var(--gold)" }}
                   transition={{ duration: 0.3 }}
-                  className="relative p-8 sm:p-10 rounded-2xl bg-white/[0.02] border border-white/5 overflow-hidden group"
+                  className="relative p-8 sm:p-10 rounded-2xl bg-[var(--foreground)]/[0.02] border border-[var(--foreground)]/5 overflow-hidden group"
                 >
-                  <span className="absolute top-4 right-6 text-[6rem] font-black leading-none text-white/[0.03] select-none pointer-events-none">
+                  <span className="absolute top-4 right-6 text-[6rem] font-black leading-none text-[var(--foreground)]/[0.03] select-none pointer-events-none">
                     02
                   </span>
                   <div className="relative z-10">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[var(--foreground)] tracking-tight">
                       {services[1].title}
                     </h3>
                     <p className="mt-3 text-[var(--text-secondary)] leading-relaxed text-sm sm:text-base">
@@ -168,13 +168,13 @@ export default function Home() {
                 <motion.div
                   whileHover={{ borderColor: "var(--gold)" }}
                   transition={{ duration: 0.3 }}
-                  className="relative p-8 sm:p-10 rounded-2xl bg-white/[0.02] border border-white/5 overflow-hidden group"
+                  className="relative p-8 sm:p-10 rounded-2xl bg-[var(--foreground)]/[0.02] border border-[var(--foreground)]/5 overflow-hidden group"
                 >
-                  <span className="absolute top-4 right-6 text-[6rem] font-black leading-none text-white/[0.03] select-none pointer-events-none">
+                  <span className="absolute top-4 right-6 text-[6rem] font-black leading-none text-[var(--foreground)]/[0.03] select-none pointer-events-none">
                     03
                   </span>
                   <div className="relative z-10">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[var(--foreground)] tracking-tight">
                       {services[2].title}
                     </h3>
                     <p className="mt-3 text-[var(--text-secondary)] leading-relaxed text-sm sm:text-base">
@@ -215,7 +215,7 @@ export default function Home() {
       {/* ──────────────────────────────────────────────
           SYSTEM SHOWCASE
       ────────────────────────────────────────────── */}
-      <section className="relative py-24 sm:py-32 bg-black overflow-hidden">
+      <section className="relative py-24 sm:py-32 bg-[var(--background)] overflow-hidden">
         {/* Glow */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-[var(--gold)]/[0.03] blur-[140px] pointer-events-none" />
 
@@ -236,15 +236,15 @@ export default function Home() {
           <AnimatedSection delay={0.2}>
             <div className="relative mx-auto max-w-4xl">
               {/* Browser chrome */}
-              <div className="rounded-xl border border-white/10 bg-white/[0.02] overflow-hidden shadow-2xl shadow-black/40">
+              <div className="rounded-xl border border-[var(--foreground)]/10 bg-[var(--foreground)]/[0.02] overflow-hidden shadow-2xl shadow-[var(--background)]/40">
                 {/* Title bar */}
-                <div className="flex items-center gap-2 px-5 py-3.5 border-b border-white/5 bg-white/[0.02]">
+                <div className="flex items-center gap-2 px-5 py-3.5 border-b border-[var(--foreground)]/5 bg-[var(--foreground)]/[0.02]">
                   <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-white/10" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[var(--foreground)]/10" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[var(--foreground)]/10" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-[var(--foreground)]/10" />
                   </div>
-                  <div className="ml-4 flex-1 h-5 rounded-md bg-white/5 max-w-xs" />
+                  <div className="ml-4 flex-1 h-5 rounded-md bg-[var(--foreground)]/5 max-w-xs" />
                 </div>
 
                 {/* Dashboard body */}
@@ -252,12 +252,12 @@ export default function Home() {
                   {/* Sidebar mock */}
                   <div className="col-span-3 hidden sm:flex flex-col gap-3">
                     <div className="h-4 w-3/4 rounded bg-[var(--gold)]/20" />
-                    <div className="h-3 w-full rounded bg-white/5" />
-                    <div className="h-3 w-full rounded bg-white/5" />
-                    <div className="h-3 w-5/6 rounded bg-white/[0.08]" />
-                    <div className="h-3 w-full rounded bg-white/5" />
-                    <div className="h-3 w-4/5 rounded bg-white/5" />
-                    <div className="mt-auto h-3 w-2/3 rounded bg-white/5" />
+                    <div className="h-3 w-full rounded bg-[var(--foreground)]/5" />
+                    <div className="h-3 w-full rounded bg-[var(--foreground)]/5" />
+                    <div className="h-3 w-5/6 rounded bg-[var(--foreground)]/[0.08]" />
+                    <div className="h-3 w-full rounded bg-[var(--foreground)]/5" />
+                    <div className="h-3 w-4/5 rounded bg-[var(--foreground)]/5" />
+                    <div className="mt-auto h-3 w-2/3 rounded bg-[var(--foreground)]/5" />
                   </div>
 
                   {/* Main content area */}
@@ -271,17 +271,17 @@ export default function Home() {
                       ].map((card, i) => (
                         <div
                           key={i}
-                          className="rounded-lg bg-white/[0.03] border border-white/5 p-4 flex flex-col gap-2"
+                          className="rounded-lg bg-[var(--foreground)]/[0.03] border border-[var(--foreground)]/5 p-4 flex flex-col gap-2"
                         >
                           <div className={`h-2 ${card.width} rounded ${card.color}`} />
-                          <div className="h-5 w-1/2 rounded bg-white/10" />
-                          <div className="h-2 w-full rounded bg-white/5" />
+                          <div className="h-5 w-1/2 rounded bg-[var(--foreground)]/10" />
+                          <div className="h-2 w-full rounded bg-[var(--foreground)]/5" />
                         </div>
                       ))}
                     </div>
 
                     {/* Chart area */}
-                    <div className="flex-1 rounded-lg bg-white/[0.03] border border-white/5 p-4 flex items-end gap-2">
+                    <div className="flex-1 rounded-lg bg-[var(--foreground)]/[0.03] border border-[var(--foreground)]/5 p-4 flex items-end gap-2">
                       {[40, 65, 45, 80, 55, 70, 90, 60, 75, 85, 50, 95].map(
                         (h, i) => (
                           <div
@@ -301,19 +301,19 @@ export default function Home() {
 
                     {/* Bottom row */}
                     <div className="grid grid-cols-2 gap-3">
-                      <div className="rounded-lg bg-white/[0.03] border border-white/5 p-4">
+                      <div className="rounded-lg bg-[var(--foreground)]/[0.03] border border-[var(--foreground)]/5 p-4">
                         <div className="flex items-center gap-3 mb-3">
                           <div className="w-8 h-8 rounded-full bg-[var(--gold)]/15 shrink-0" />
-                          <div className="h-2 flex-1 rounded bg-white/10" />
+                          <div className="h-2 flex-1 rounded bg-[var(--foreground)]/10" />
                         </div>
                         <div className="space-y-2">
-                          <div className="h-2 w-full rounded bg-white/5" />
-                          <div className="h-2 w-4/5 rounded bg-white/5" />
+                          <div className="h-2 w-full rounded bg-[var(--foreground)]/5" />
+                          <div className="h-2 w-4/5 rounded bg-[var(--foreground)]/5" />
                         </div>
                       </div>
-                      <div className="rounded-lg bg-white/[0.03] border border-white/5 p-4 flex flex-col justify-center items-center gap-2">
+                      <div className="rounded-lg bg-[var(--foreground)]/[0.03] border border-[var(--foreground)]/5 p-4 flex flex-col justify-center items-center gap-2">
                         <div className="w-12 h-12 rounded-full border-[3px] border-[var(--gold)]/30 border-t-[var(--gold)]" />
-                        <div className="h-2 w-1/2 rounded bg-white/10" />
+                        <div className="h-2 w-1/2 rounded bg-[var(--foreground)]/10" />
                       </div>
                     </div>
                   </div>
@@ -333,7 +333,7 @@ export default function Home() {
                   key={pill}
                   whileHover={{ borderColor: "var(--gold)", scale: 1.03 }}
                   transition={{ duration: 0.2 }}
-                  className="flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-white/10 bg-white/[0.02] text-sm text-white/70 cursor-default"
+                  className="flex items-center gap-2.5 px-5 py-2.5 rounded-full border border-[var(--foreground)]/10 bg-[var(--foreground)]/[0.02] text-sm text-[var(--foreground)]/70 cursor-default"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)]" />
                   {pill}
@@ -347,7 +347,7 @@ export default function Home() {
       {/* ──────────────────────────────────────────────
           RESULTS / NUMBERS
       ────────────────────────────────────────────── */}
-      <section className="relative py-24 sm:py-32 bg-[#060606] overflow-hidden">
+      <section className="relative py-24 sm:py-32 bg-[var(--surface)] overflow-hidden">
         {/* Background grid */}
         <div
           className="absolute inset-0 opacity-[0.03]"
@@ -362,15 +362,15 @@ export default function Home() {
             <span className="text-[11px] uppercase tracking-[0.3em] text-[var(--gold)] font-semibold">
               Impacto
             </span>
-            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--foreground)] tracking-tight">
               Resultados <span className="text-gold-gradient">Reais</span>
             </h2>
           </AnimatedSection>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--foreground)]/5 rounded-2xl overflow-hidden">
             {stats.map((stat, i) => (
               <AnimatedSection key={stat.label} delay={i * 0.1}>
-                <div className="relative p-8 sm:p-10 bg-[#060606] text-center group hover:bg-white/[0.02] transition-colors duration-500">
+                <div className="relative p-8 sm:p-10 bg-[var(--surface)] text-center group hover:bg-[var(--foreground)]/[0.02] transition-colors duration-500">
                   {/* Gold top accent on hover */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-12 h-[2px] bg-[var(--gold)] transition-all duration-500 rounded-full" />
 
@@ -393,7 +393,7 @@ export default function Home() {
       {/* ──────────────────────────────────────────────
           CTA SECTION
       ────────────────────────────────────────────── */}
-      <section className="relative py-28 sm:py-36 bg-black overflow-hidden">
+      <section className="relative py-28 sm:py-36 bg-[var(--background)] overflow-hidden">
         {/* Radial gold glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[var(--gold)]/[0.04] blur-[160px] pointer-events-none" />
 
@@ -403,7 +403,7 @@ export default function Home() {
 
         <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight leading-[1.15]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-[var(--foreground)] tracking-tight leading-[1.15]">
               Pronto para{" "}
               <span className="text-gold-gradient">transformar</span>
               <br className="hidden sm:block" /> sua operação?

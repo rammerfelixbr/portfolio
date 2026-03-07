@@ -120,7 +120,7 @@ export default function SobrePage() {
                     <span className="text-sm font-medium text-[var(--gold)] tracking-wider">
                       {step.number}
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mt-1 mb-3">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[var(--foreground)] mt-1 mb-3">
                       {step.title}
                     </h3>
                     <p className="text-[var(--text-secondary)] leading-relaxed max-w-lg">
@@ -145,7 +145,7 @@ export default function SobrePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
             {/* Large card spanning 2 rows */}
             <motion.div
-              className="md:row-span-2 relative overflow-hidden rounded-2xl bg-white/[0.02] border border-white/5 p-8 sm:p-10 flex flex-col justify-between transition-colors duration-300 hover:border-[var(--gold)]/30"
+              className="md:row-span-2 relative overflow-hidden rounded-2xl bg-[var(--foreground)]/[0.02] border border-[var(--foreground)]/5 p-8 sm:p-10 flex flex-col justify-between transition-colors duration-300 hover:border-[var(--gold)]/30"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -164,7 +164,7 @@ export default function SobrePage() {
                 <span className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--gold)] mb-6 block">
                   Principal
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-bold text-[var(--foreground)] mb-4 leading-tight">
                   Visão
                   <br />
                   Estratégica
@@ -186,7 +186,7 @@ export default function SobrePage() {
             {expertiseSmall.map((item, i) => (
               <motion.div
                 key={item.title}
-                className="relative overflow-hidden rounded-2xl bg-white/[0.02] border border-white/5 p-6 sm:p-7 transition-colors duration-300 hover:border-[var(--gold)]/30"
+                className="relative overflow-hidden rounded-2xl bg-[var(--foreground)]/[0.02] border border-[var(--foreground)]/5 p-6 sm:p-7 transition-colors duration-300 hover:border-[var(--gold)]/30"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -202,7 +202,7 @@ export default function SobrePage() {
                   style={{ background: "var(--gold)" }}
                 />
 
-                <h3 className="text-base sm:text-lg font-semibold text-white mb-2 mt-2">
+                <h3 className="text-base sm:text-lg font-semibold text-[var(--foreground)] mb-2 mt-2">
                   {item.title}
                 </h3>
                 <p className="text-sm text-[var(--text-secondary)] leading-relaxed">

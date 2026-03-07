@@ -68,7 +68,7 @@ export default function ServicosPage() {
             <span className="inline-block text-xs font-semibold tracking-[0.3em] uppercase text-[var(--gold)] mb-6">
               // SERVIÇOS
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--foreground)] tracking-tight leading-[1.1]">
               Soluções sob{" "}
               <span className="text-gold-gradient">medida</span>
               <br />
@@ -86,7 +86,7 @@ export default function ServicosPage() {
       <section className="pb-24 sm:pb-32">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <div className="border-t border-white/5">
+            <div className="border-t border-[var(--foreground)]/5">
               {servicos.map((servico, index) => (
                 <motion.div
                   key={servico.number}
@@ -98,7 +98,7 @@ export default function ServicosPage() {
                     delay: index * 0.08,
                     ease: "easeOut",
                   }}
-                  className="group relative border-b border-white/5 transition-all duration-300 hover:bg-white/[0.02] hover:border-l-2 hover:border-l-[var(--gold)] hover:pl-6"
+                  className="group relative border-b border-[var(--foreground)]/5 transition-all duration-300 hover:bg-[var(--foreground)]/[0.02] hover:border-l-2 hover:border-l-[var(--gold)] hover:pl-6"
                 >
                   <div className="py-8 sm:py-10">
                     <div className="flex items-start justify-between gap-6">
@@ -109,7 +109,7 @@ export default function ServicosPage() {
 
                       {/* Center: Title + Description */}
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight group-hover:text-[var(--gold)] transition-colors duration-300">
+                        <h3 className="text-lg sm:text-xl font-bold text-[var(--foreground)] tracking-tight group-hover:text-[var(--gold)] transition-colors duration-300">
                           {servico.title}
                         </h3>
                         <p className="mt-3 text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed max-w-2xl">
@@ -144,11 +144,11 @@ export default function ServicosPage() {
       </section>
 
       {/* Differentials */}
-      <section className="py-24 sm:py-32 bg-white/[0.02]">
+      <section className="py-24 sm:py-32 bg-[var(--foreground)]/[0.02]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight">
                 Por que escolher a{" "}
                 <span className="text-gold-gradient">
                   Hammer Felix Consulting
@@ -164,7 +164,7 @@ export default function ServicosPage() {
                   <span className="inline-block text-5xl sm:text-6xl font-bold text-[var(--gold)] opacity-40 mb-4">
                     {item.number}
                   </span>
-                  <h3 className="text-lg font-bold text-white mb-3">
+                  <h3 className="text-lg font-bold text-[var(--foreground)] mb-3">
                     {item.title}
                   </h3>
                   <p className="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
@@ -181,13 +181,13 @@ export default function ServicosPage() {
       <section className="py-24 sm:py-32">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <div className="relative rounded-2xl border border-white/5 bg-white/[0.02] p-10 sm:p-16 text-center overflow-hidden">
+            <div className="relative rounded-2xl border border-[var(--foreground)]/5 bg-[var(--foreground)]/[0.02] p-10 sm:p-16 text-center overflow-hidden">
               {/* Subtle gold glow behind */}
               <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-[var(--gold)] opacity-[0.03] blur-[100px] rounded-full" />
               </div>
 
-              <h2 className="relative text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">
+              <h2 className="relative text-2xl sm:text-3xl font-bold text-[var(--foreground)] tracking-tight mb-4">
                 Precisa de algo específico?
               </h2>
               <p className="relative text-[var(--text-secondary)] max-w-xl mx-auto mb-8 leading-relaxed">

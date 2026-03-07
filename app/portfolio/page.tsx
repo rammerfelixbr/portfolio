@@ -72,7 +72,7 @@ const testimonials = [
 
 export default function PortfolioPage() {
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-[var(--background)] min-h-screen">
       {/* Header */}
       <section className="pt-24 sm:pt-32 pb-16 sm:pb-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,7 +82,7 @@ export default function PortfolioPage() {
             </span>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--foreground)] tracking-tight leading-[1.1]">
               Resultados{" "}
               <span className="bg-gradient-to-r from-[#D4A843] via-[#F0D78C] to-[#D4A843] bg-clip-text text-transparent">
                 Reais
@@ -93,7 +93,7 @@ export default function PortfolioPage() {
             </h1>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
-            <p className="mt-6 text-lg text-neutral-400 max-w-2xl leading-relaxed">
+            <p className="mt-6 text-lg text-[var(--text-secondary)] max-w-2xl leading-relaxed">
               Cada projeto representa uma transformação concreta. Conheça os
               resultados entregues em operações reais.
             </p>
@@ -108,7 +108,7 @@ export default function PortfolioPage() {
             {cases.map((caseItem, index) => (
               <AnimatedSection key={caseItem.number} delay={index * 0.08}>
                 <motion.div
-                  className="group relative flex flex-col md:flex-row md:items-center gap-6 md:gap-10 py-8 sm:py-10 border-b border-white/5 transition-all duration-300"
+                  className="group relative flex flex-col md:flex-row md:items-center gap-6 md:gap-10 py-8 sm:py-10 border-b border-[var(--foreground)]/5 transition-all duration-300"
                   whileHover={{ x: 4 }}
                 >
                   {/* Gold left accent on hover */}
@@ -123,10 +123,10 @@ export default function PortfolioPage() {
 
                   {/* Middle: Content */}
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-white/90 transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[var(--foreground)] mb-2 group-hover:text-[var(--foreground)]/90 transition-colors">
                       {caseItem.title}
                     </h3>
-                    <p className="text-neutral-400 text-sm sm:text-base leading-relaxed mb-3">
+                    <p className="text-[var(--text-secondary)] text-sm sm:text-base leading-relaxed mb-3">
                       {caseItem.description}
                     </p>
                     <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase text-[#D4A843]/80 border border-[#D4A843]/20 rounded-full bg-[#D4A843]/5">
@@ -155,7 +155,7 @@ export default function PortfolioPage() {
               <span className="inline-block text-[#D4A843] text-sm font-mono tracking-widest uppercase mb-4">
                 // DEPOIMENTOS
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight">
                 O que dizem
               </h2>
             </div>
@@ -164,7 +164,7 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {testimonials.map((testimonial, index) => (
               <AnimatedSection key={testimonial.name} delay={index * 0.15}>
-                <div className="relative p-8 sm:p-10 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-[#D4A843]/20 transition-all duration-500 group h-full">
+                <div className="relative p-8 sm:p-10 rounded-2xl bg-[var(--foreground)]/[0.02] border border-[var(--foreground)]/[0.06] hover:border-[#D4A843]/20 transition-all duration-500 group h-full">
                   {/* Gold quote mark */}
                   <div className="mb-6">
                     <svg
@@ -182,7 +182,7 @@ export default function PortfolioPage() {
                     </svg>
                   </div>
 
-                  <p className="text-white/80 text-base sm:text-lg leading-relaxed mb-8 italic">
+                  <p className="text-[var(--foreground)]/80 text-base sm:text-lg leading-relaxed mb-8 italic">
                     &ldquo;{testimonial.quote}&rdquo;
                   </p>
 
@@ -192,10 +192,10 @@ export default function PortfolioPage() {
                       {testimonial.name.charAt(0)}
                     </div>
                     <div>
-                      <p className="text-white font-semibold text-sm">
+                      <p className="text-[var(--foreground)] font-semibold text-sm">
                         {testimonial.name}
                       </p>
-                      <p className="text-neutral-500 text-xs">
+                      <p className="text-[var(--text-secondary)] text-xs">
                         {testimonial.role}
                       </p>
                     </div>
@@ -211,15 +211,15 @@ export default function PortfolioPage() {
       <section className="py-20 sm:py-28">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <div className="relative text-center py-16 sm:py-20 px-6 rounded-3xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
+            <div className="relative text-center py-16 sm:py-20 px-6 rounded-3xl border border-[var(--foreground)]/[0.06] bg-[var(--foreground)]/[0.02] overflow-hidden">
               {/* Subtle gold radial glow */}
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,168,67,0.06)_0%,_transparent_70%)]" />
 
               <div className="relative z-10">
-                <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+                <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] tracking-tight mb-4">
                   Quer resultados como esses?
                 </h2>
-                <p className="text-neutral-400 max-w-lg mx-auto mb-8 leading-relaxed">
+                <p className="text-[var(--text-secondary)] max-w-lg mx-auto mb-8 leading-relaxed">
                   Cada projeto começa com uma conversa. Vamos entender sua
                   realidade e desenhar a melhor solução.
                 </p>

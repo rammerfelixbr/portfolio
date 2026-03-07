@@ -36,7 +36,7 @@ export default function ContatoPage() {
           <span className="text-[11px] uppercase tracking-[0.3em] text-[var(--gold)] font-medium">
             // CONTATO
           </span>
-          <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1]">
+          <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--foreground)] tracking-tight leading-[1.1]">
             Vamos conversar sobre o{" "}
             <span className="text-gold-gradient">futuro</span> da sua operação
           </h1>
@@ -45,7 +45,7 @@ export default function ContatoPage() {
         {/* Two column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* LEFT COLUMN - Form */}
-          <div className="border border-white/5 bg-white/[0.02] rounded-2xl p-8 sm:p-10">
+          <div className="border border-[var(--foreground)]/5 bg-[var(--foreground)]/[0.02] rounded-2xl p-8 sm:p-10">
             <h2 className="text-[11px] uppercase tracking-[0.2em] text-[var(--gold)] font-medium mb-10">
               Envie uma mensagem
             </h2>
@@ -59,7 +59,7 @@ export default function ContatoPage() {
               {/* Email */}
               <a
                 href="mailto:rammerfelix@gmail.com"
-                className="flex items-center gap-5 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-[var(--gold)]/30 transition-colors duration-300 group"
+                className="flex items-center gap-5 p-5 rounded-xl border border-[var(--foreground)]/5 bg-[var(--foreground)]/[0.02] hover:border-[var(--gold)]/30 transition-colors duration-300 group"
               >
                 <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-[var(--gold)]/10">
                   <svg
@@ -78,7 +78,7 @@ export default function ContatoPage() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-white group-hover:text-[var(--gold)] transition-colors duration-300">
+                  <div className="text-sm font-medium text-[var(--foreground)] group-hover:text-[var(--gold)] transition-colors duration-300">
                     E-mail
                   </div>
                   <div className="text-sm text-[var(--text-secondary)]">
@@ -92,7 +92,7 @@ export default function ContatoPage() {
                 href="https://www.linkedin.com/in/rammer-felix-34a0583b1/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-5 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-[var(--gold)]/30 transition-colors duration-300 group"
+                className="flex items-center gap-5 p-5 rounded-xl border border-[var(--foreground)]/5 bg-[var(--foreground)]/[0.02] hover:border-[var(--gold)]/30 transition-colors duration-300 group"
               >
                 <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-[var(--gold)]/10">
                   <svg
@@ -105,7 +105,7 @@ export default function ContatoPage() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-white group-hover:text-[var(--gold)] transition-colors duration-300">
+                  <div className="text-sm font-medium text-[var(--foreground)] group-hover:text-[var(--gold)] transition-colors duration-300">
                     LinkedIn
                   </div>
                   <div className="text-sm text-[var(--text-secondary)]">
@@ -125,7 +125,7 @@ export default function ContatoPage() {
                   <div
                     key={step.number}
                     className={`flex items-baseline gap-4 py-5 ${
-                      i < steps.length - 1 ? "border-b border-white/5" : ""
+                      i < steps.length - 1 ? "border-b border-[var(--foreground)]/5" : ""
                     }`}
                   >
                     <span className="text-sm font-semibold text-[var(--gold)] tabular-nums flex-shrink-0">

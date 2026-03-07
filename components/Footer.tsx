@@ -2,13 +2,13 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/5 bg-black">
+    <footer className="relative border-t border-[var(--foreground)]/5 bg-[var(--background)]">
       <div className="gold-line w-full" />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
             <div>
-              <span className="text-lg font-semibold tracking-wide text-white">
+              <span className="text-lg font-semibold tracking-wide text-[var(--foreground)]">
                 Hammer<span className="text-gold-gradient font-bold"> Felix</span>
               </span>
               <span className="block text-[10px] uppercase tracking-[0.25em] text-[var(--text-secondary)] -mt-0.5">
@@ -32,7 +32,7 @@ export default function Footer() {
                 { href: "/contato", label: "Contato" },
               ].map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-[var(--text-secondary)] hover:text-white transition-colors duration-300">
+                  <Link href={link.href} className="text-sm text-[var(--text-secondary)] hover:text-[var(--foreground)] transition-colors duration-300">
                     {link.label}
                   </Link>
                 </li>
@@ -45,12 +45,12 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <a href="mailto:rammerfelix@gmail.com" className="text-sm text-[var(--text-secondary)] hover:text-white transition-colors duration-300">
+                <a href="mailto:rammerfelix@gmail.com" className="text-sm text-[var(--text-secondary)] hover:text-[var(--foreground)] transition-colors duration-300">
                   rammerfelix@gmail.com
                 </a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/in/rammer-felix-34a0583b1/" target="_blank" rel="noopener noreferrer" className="text-sm text-[var(--text-secondary)] hover:text-white transition-colors duration-300">
+                <a href="https://www.linkedin.com/in/rammer-felix-34a0583b1/" target="_blank" rel="noopener noreferrer" className="text-sm text-[var(--text-secondary)] hover:text-[var(--foreground)] transition-colors duration-300">
                   LinkedIn
                 </a>
               </li>
@@ -65,7 +65,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="mt-16 pt-8 border-t border-[var(--foreground)]/5 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-[var(--text-secondary)]">
             &copy; {new Date().getFullYear()} Hammer Felix Consulting. Todos os direitos reservados.
           </p>

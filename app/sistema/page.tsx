@@ -58,13 +58,13 @@ export default function SistemaPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-[var(--background)]">
       {/* Header */}
       <AnimatedSection className="pt-32 pb-16 px-6 lg:px-8 max-w-7xl mx-auto">
         <span className="inline-block text-xs tracking-[0.3em] uppercase text-[var(--gold)] font-medium mb-6">
           // SISTEMA DE GESTÃO
         </span>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] max-w-4xl">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--foreground)] leading-[1.1] max-w-4xl">
           Um sistema{" "}
           <span className="text-gold-gradient">completo</span>, construído
           para a realidade das empresas
@@ -79,15 +79,15 @@ export default function SistemaPage() {
 
       {/* Dashboard Mockup - representação visual do sistema real */}
       <AnimatedSection className="px-6 lg:px-8 max-w-7xl mx-auto pb-12" delay={0.15}>
-        <div className="bg-white/[0.02] border border-white/5 rounded-2xl overflow-hidden">
+        <div className="bg-[var(--foreground)]/[0.02] border border-[var(--foreground)]/5 rounded-2xl overflow-hidden">
           {/* Top bar */}
-          <div className="flex items-center px-4 py-3 border-b border-white/5">
+          <div className="flex items-center px-4 py-3 border-b border-[var(--foreground)]/5">
             <div className="flex items-center gap-2 mr-auto">
               <div className="w-3 h-3 rounded-full bg-red-500/40" />
               <div className="w-3 h-3 rounded-full bg-yellow-500/40" />
               <div className="w-3 h-3 rounded-full bg-green-500/40" />
             </div>
-            <div className="flex gap-1 text-[10px] tracking-wider uppercase text-white/30">
+            <div className="flex gap-1 text-[10px] tracking-wider uppercase text-[var(--foreground)]/30">
               <span className="px-3 py-1 rounded bg-[var(--gold)]/10 text-[var(--gold)]/70 border border-[var(--gold)]/20">Dashboard</span>
               <span className="px-3 py-1">Solicitações</span>
               <span className="px-3 py-1">Financeiro</span>
@@ -97,7 +97,7 @@ export default function SistemaPage() {
 
           <div className="flex min-h-[380px]">
             {/* Sidebar */}
-            <div className="w-44 border-r border-white/5 p-3 hidden md:flex flex-col gap-1.5">
+            <div className="w-44 border-r border-[var(--foreground)]/5 p-3 hidden md:flex flex-col gap-1.5">
               {[
                 { label: "Dashboard", active: true },
                 { label: "Solicitações", active: false },
@@ -112,18 +112,18 @@ export default function SistemaPage() {
                   className={`flex items-center gap-2 px-3 py-2 rounded-lg text-[10px] tracking-wide ${
                     item.active
                       ? "bg-[var(--gold)]/10 border-l-2 border-[var(--gold)] text-[var(--gold)]"
-                      : "text-white/25"
+                      : "text-[var(--foreground)]/25"
                   }`}
                 >
-                  <div className={`w-3 h-3 rounded ${item.active ? "bg-[var(--gold)]/30" : "bg-white/10"}`} />
+                  <div className={`w-3 h-3 rounded ${item.active ? "bg-[var(--gold)]/30" : "bg-[var(--foreground)]/10"}`} />
                   {item.label}
                 </div>
               ))}
               {/* User at bottom */}
-              <div className="mt-auto pt-3 border-t border-white/5 flex items-center gap-2 px-2">
+              <div className="mt-auto pt-3 border-t border-[var(--foreground)]/5 flex items-center gap-2 px-2">
                 <div className="w-6 h-6 rounded-full bg-purple-500/30 flex items-center justify-center text-[8px] text-purple-300">R</div>
                 <div>
-                  <div className="text-[9px] text-white/40">Rammer</div>
+                  <div className="text-[9px] text-[var(--foreground)]/40">Rammer</div>
                   <div className="text-[8px] text-[var(--gold)]/50">Admin</div>
                 </div>
               </div>
@@ -146,15 +146,15 @@ export default function SistemaPage() {
                   { label: "Reuniões", value: "8", color: "bg-purple-500/10 border-purple-500/10" },
                 ].map((stat) => (
                   <div key={stat.label} className={`px-3 py-3 rounded-xl border ${stat.color}`}>
-                    <div className="text-[9px] text-white/30 mb-1">{stat.label}</div>
-                    <div className="text-lg font-bold text-white/60">{stat.value}</div>
+                    <div className="text-[9px] text-[var(--foreground)]/30 mb-1">{stat.label}</div>
+                    <div className="text-lg font-bold text-[var(--foreground)]/60">{stat.value}</div>
                   </div>
                 ))}
               </div>
 
               {/* Workload thermometer */}
-              <div className="bg-white/[0.02] rounded-xl border border-white/5 p-4">
-                <div className="text-[10px] text-white/30 uppercase tracking-wider mb-3">Termômetro de Carga</div>
+              <div className="bg-[var(--foreground)]/[0.02] rounded-xl border border-[var(--foreground)]/5 p-4">
+                <div className="text-[10px] text-[var(--foreground)]/30 uppercase tracking-wider mb-3">Termômetro de Carga</div>
                 <div className="space-y-2">
                   {[
                     { name: "R", load: 89, color: "bg-red-500" },
@@ -163,8 +163,8 @@ export default function SistemaPage() {
                     { name: "D", load: 65, color: "bg-orange-500" },
                   ].map((person) => (
                     <div key={person.name} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-white/5 flex items-center justify-center text-[8px] text-white/40">{person.name}</div>
-                      <div className="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
+                      <div className="w-5 h-5 rounded-full bg-[var(--foreground)]/5 flex items-center justify-center text-[8px] text-[var(--foreground)]/40">{person.name}</div>
+                      <div className="flex-1 h-1.5 bg-[var(--foreground)]/5 rounded-full overflow-hidden">
                         <motion.div
                           className={`h-full rounded-full ${person.color}/40`}
                           initial={{ width: 0 }}
@@ -173,15 +173,15 @@ export default function SistemaPage() {
                           transition={{ duration: 1, delay: 0.3 }}
                         />
                       </div>
-                      <span className="text-[9px] text-white/30 w-8 text-right">{person.load}%</span>
+                      <span className="text-[9px] text-[var(--foreground)]/30 w-8 text-right">{person.load}%</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Chart */}
-              <div className="bg-white/[0.02] rounded-xl border border-white/5 p-4">
-                <div className="text-[10px] text-white/30 uppercase tracking-wider mb-3">Projeção Financeira — 6 meses</div>
+              <div className="bg-[var(--foreground)]/[0.02] rounded-xl border border-[var(--foreground)]/5 p-4">
+                <div className="text-[10px] text-[var(--foreground)]/30 uppercase tracking-wider mb-3">Projeção Financeira — 6 meses</div>
                 <div className="flex items-end gap-1.5 h-24">
                   {[
                     { g: 65, r: 55 }, { g: 72, r: 60 }, { g: 80, r: 68 },
@@ -210,13 +210,13 @@ export default function SistemaPage() {
           </div>
 
           {/* Bottom status bar */}
-          <div className="px-4 py-2 border-t border-white/5 flex items-center gap-2">
+          <div className="px-4 py-2 border-t border-[var(--foreground)]/5 flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-green-500/60" />
-            <span className="text-[9px] text-white/20">Salvo na nuvem • Sincronizado em tempo real</span>
+            <span className="text-[9px] text-[var(--foreground)]/20">Salvo na nuvem • Sincronizado em tempo real</span>
           </div>
         </div>
 
-        <p className="text-center text-white/30 text-sm mt-6 max-w-2xl mx-auto">
+        <p className="text-center text-[var(--foreground)]/30 text-sm mt-6 max-w-2xl mx-auto">
           Interface real do sistema — dashboard, termômetro de sobrecarga, projeção financeira e muito mais.
         </p>
       </AnimatedSection>
@@ -240,26 +240,26 @@ export default function SistemaPage() {
       </AnimatedSection>
 
       {/* Modules */}
-      <div className="px-6 lg:px-8 max-w-7xl mx-auto py-20 border-t border-white/5">
+      <div className="px-6 lg:px-8 max-w-7xl mx-auto py-20 border-t border-[var(--foreground)]/5">
         <AnimatedSection>
           <span className="inline-block text-xs tracking-[0.3em] uppercase text-[var(--gold)] font-medium mb-4">
             // MÓDULOS
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] mb-16">
             Funcionalidades do sistema
           </h2>
         </AnimatedSection>
 
         {modules.map((module, index) => (
           <AnimatedSection key={module.number} delay={index * 0.06}>
-            <div className="group grid grid-cols-1 md:grid-cols-[100px_1fr_auto] gap-6 md:gap-10 py-10 border-b border-white/5 hover:border-[var(--gold)]/20 transition-colors">
+            <div className="group grid grid-cols-1 md:grid-cols-[100px_1fr_auto] gap-6 md:gap-10 py-10 border-b border-[var(--foreground)]/5 hover:border-[var(--gold)]/20 transition-colors">
               <div>
                 <span className="text-4xl font-bold bg-gradient-to-b from-[var(--gold)] to-[var(--gold)]/20 bg-clip-text text-transparent">
                   {module.number}
                 </span>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-[var(--gold)] transition-colors">
+                <h3 className="text-xl font-semibold text-[var(--foreground)] mb-2 group-hover:text-[var(--gold)] transition-colors">
                   {module.title}
                 </h3>
                 <p className="text-[var(--text-secondary)] leading-relaxed max-w-2xl text-sm">
@@ -278,9 +278,9 @@ export default function SistemaPage() {
 
       {/* Stats */}
       <AnimatedSection className="px-6 lg:px-8 max-w-7xl mx-auto py-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[var(--foreground)]/5 rounded-2xl overflow-hidden">
           {stats.map((stat, i) => (
-            <div key={i} className="bg-black px-6 py-10 text-center">
+            <div key={i} className="bg-[var(--background)] px-6 py-10 text-center">
               <div className="text-3xl sm:text-4xl font-bold text-gold-gradient mb-2">
                 <AnimatedCounter target={parseInt(stat.value)} suffix={stat.suffix} />
               </div>
@@ -296,7 +296,7 @@ export default function SistemaPage() {
       <AnimatedSection className="px-6 lg:px-8 max-w-7xl mx-auto pb-20">
         <div className="flex flex-wrap items-center justify-center gap-4">
           {["JavaScript", "Firebase", "Firestore", "Cloud Functions", "Vercel", "Real-time Sync"].map((tech) => (
-            <span key={tech} className="px-4 py-2 rounded-full border border-white/5 text-xs text-[var(--text-secondary)] tracking-wider">
+            <span key={tech} className="px-4 py-2 rounded-full border border-[var(--foreground)]/5 text-xs text-[var(--text-secondary)] tracking-wider">
               {tech}
             </span>
           ))}
@@ -305,10 +305,10 @@ export default function SistemaPage() {
 
       {/* CTA */}
       <AnimatedSection className="px-6 lg:px-8 max-w-7xl mx-auto pb-32">
-        <div className="relative text-center py-20 rounded-3xl border border-white/5 bg-white/[0.01] overflow-hidden">
+        <div className="relative text-center py-20 rounded-3xl border border-[var(--foreground)]/5 bg-[var(--foreground)]/[0.01] overflow-hidden">
           <div className="absolute inset-0 bg-[var(--gold)]/[0.02] blur-[100px] rounded-full w-96 h-96 mx-auto my-auto" />
           <div className="relative">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[var(--foreground)] mb-4">
               Quer um sistema assim para sua empresa?
             </h2>
             <p className="text-[var(--text-secondary)] mb-8 max-w-lg mx-auto">
